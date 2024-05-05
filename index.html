@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <h1>Vyshnavi</h1>
+                <ul>
+                    <li><a href="#" onclick="scrollToSection('header')">Home</a></li>
+                    <li><a href="#" onclick="scrollToSection('About')">About</a></li>
+                    <li><a href="#" onclick="scrollToSection('contact')">Contact</a></li>
+                </ul>
+                <i class="fas fa-bars" id="menuIcon" onclick="toggleMenu()"></i>
+                <i class="fas fa-times" id="closeIcon" style="display: none;" onclick="toggleMenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Web Designer</p>
+                <h1>Hi, I am <span>Vyshnavi</span> from Nuzvid</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="About">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="downloads/phone-background.png" alt="Vyshnavi">
+                </div>
+                <div class="about-col-2"> 
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Hello, I'm A. Vyshnavi, and I welcome you to my portfolio. Here, you'll find a collection of my work and accomplishments,<br> reflecting my passion, dedication, and creativity. I invite you to explore and discover the story I've woven through my projects,<br> and I look forward to the possibility of collaborating with you in the future. Thank you for visiting!</p>
+                </div>
+            </div>
+            
+            <div class="tab-titles">
+                <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+                <p class="tab-links" onclick="opentab('Information')">Information</p>
+                <p class="tab-links" onclick="opentab('Education')">Education</p>
+            </div>
+
+            <div class="tab-content active-tab" id="Skills">
+                <ul>
+                    <li><span>HTML</span></li>
+                    <li><span>CSS</span></li>
+                    <li><span>JavaScript</span></li>
+                    <li><span>C Language</span></li>
+                    <!-- Add more skills or content here -->
+                </ul>
+            </div>
+            <div class="tab-content" id="Information">
+                <ul>
+                    <li><span>Date of Birth</span><br>28-08-2005</li>
+                    <li><span>Degree</span><br>Bachelor of Technology - CSBS</li>
+                    <li><span>City</span><br>Nuzvid, Andhra Pradesh, India</li>
+                    <!-- Add more information or content here -->
+                </ul>
+            </div>
+            <div class="tab-content" id="Education">
+                <ul>
+                    <li><span>2021</span><br>Kumar Public School, Nuzvid</li>
+                    <li><span>2021-2023</span><br>SR Junior College, Vijayawada</li>
+                    <li><span>2023-present</span><br>SRKR Engineering College, Bhimavaram</li>
+                    <!-- Add more education details here -->
+                </ul>
+            </div>
+        </div>
+        
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class="fas fa-paper-plane"></i> athuluridaughters@gmail.com</p>
+                        
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/vyshnavi-attuluri-04a9b12b9" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://x.com/vyshnaviattulur?t=VT5AYTj64PJQRKYTth-AjA&s=08" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <a href="c:\Users\pravallika\Downloads\DOk3bTG1g4knNEG7Ez0ikzLCMrL3JvYvs6yp (1).docx" download class="btn btn2">Download CV</a>
+                        
+                    </div>
+                    <div class="contact-right"> <!-- Corrected class name here -->
+                        <form>
+                            <input type="text" name="NAME" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2">Submit</button> <!-- Corrected class name here -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p> copyright &copy;Vyshnavi Attuluri</p>
+        </div>
+        
+    </div>
+    
+    <script>
+        var tablinks = document.querySelectorAll(".tab-links");
+        var tabcontents = document.querySelectorAll(".tab-content");
+
+        function opentab(tabname) {
+            tablinks.forEach(function(link) {
+                link.classList.remove("active-link");
+                if (link.textContent === tabname) {
+                    link.classList.add("active-link");
+                }
+            });
+
+            tabcontents.forEach(function(content) {
+                content.classList.remove("active-tab");
+                if (content.id === tabname) {
+                    content.classList.add("active-tab");
+                }
+            });
+        }
+
+        function scrollToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleMenu() {
+            var menuIcon = document.getElementById("menuIcon");
+            var closeIcon = document.getElementById("closeIcon");
+            var navMenu = document.querySelector("nav ul");
+
+            if (navMenu.style.display === "none" || navMenu.style.display === "") {
+                navMenu.style.display = "flex";
+                menuIcon.style.display = "none";
+                closeIcon.style.display = "block";
+            } else {
+                navMenu.style.display = "none";
+                menuIcon.style.display = "block";
+                closeIcon.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
